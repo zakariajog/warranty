@@ -2,25 +2,42 @@
 <html lang="ar" dir="rtl">
 
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Warranty | Electro Hamza</title>
 
+
+
 <style>
 
 :root{
+
 --blue:#0a66ff;
+
 --dark:#111827;
+
 --border:#e5e7eb;
+
 }
 
+
+
 body{
+
 font-family:Segoe UI;
+
 background:#f3f6fb;
+
 padding:25px;
+
 margin:0;
+
 }
+
+
 
 .card{
 
@@ -41,6 +58,7 @@ border:1px solid var(--border);
 position:relative;
 
 }
+
 
 
 .header{
@@ -64,6 +82,7 @@ flex-wrap:wrap;
 }
 
 
+
 .logo{
 
 display:flex;
@@ -74,11 +93,15 @@ gap:15px;
 
 }
 
+
+
 .logo img{
 
 height:65px;
 
 }
+
+
 
 .brand{
 
@@ -91,6 +114,8 @@ color:#666;
 letter-spacing:1px;
 
 }
+
+
 
 .meta{
 
@@ -109,6 +134,7 @@ line-height:1.9;
 }
 
 
+
 .title{
 
 text-align:center;
@@ -117,6 +143,8 @@ margin-bottom:30px;
 
 }
 
+
+
 .title h1{
 
 margin:0;
@@ -124,6 +152,7 @@ margin:0;
 font-size:28px;
 
 }
+
 
 
 .badge{
@@ -145,6 +174,7 @@ font-weight:700;
 }
 
 
+
 table{
 
 width:100%;
@@ -155,6 +185,8 @@ margin-bottom:20px;
 
 }
 
+
+
 td{
 
 padding:14px;
@@ -162,6 +194,8 @@ padding:14px;
 border:1px solid #eee;
 
 }
+
+
 
 .label{
 
@@ -173,6 +207,8 @@ width:30%;
 
 }
 
+
+
 .value{
 
 font-weight:600;
@@ -180,6 +216,8 @@ font-weight:600;
 color:#374151;
 
 }
+
+
 
 .warranty{
 
@@ -196,6 +234,7 @@ color:var(--blue);
 }
 
 
+
 .box{
 
 border:1px solid var(--border);
@@ -207,6 +246,7 @@ border-radius:12px;
 background:#fbfdff;
 
 }
+
 
 
 .sign{
@@ -221,6 +261,8 @@ margin-top:20px;
 
 }
 
+
+
 .sign div{
 
 border:1px dashed #ccc;
@@ -232,6 +274,7 @@ border-radius:10px;
 min-height:80px;
 
 }
+
 
 
 .qr{
@@ -247,6 +290,7 @@ text-align:center;
 margin-top:20px;
 
 }
+
 
 
 .watermark{
@@ -268,6 +312,7 @@ color:var(--blue);
 transform:rotate(-20deg);
 
 }
+
 
 
 .seal{
@@ -297,6 +342,7 @@ transform:rotate(-15deg);
 }
 
 
+
 .seal span{
 
 font-weight:900;
@@ -308,6 +354,7 @@ text-align:center;
 font-size:14px;
 
 }
+
 
 
 .footer{
@@ -325,6 +372,7 @@ border-top:1px solid #eee;
 padding-top:15px;
 
 }
+
 
 
 button{
@@ -346,6 +394,7 @@ cursor:pointer;
 }
 
 
+
 @media print{
 
 button{display:none}
@@ -358,15 +407,23 @@ body{background:white;padding:0}
 
 </style>
 
+
+
 </head>
 
 
 
 <body>
 
+
+
 <div class="card">
 
+
+
 <div class="watermark">E&H</div>
+
+
 
 <div class="seal">
 
@@ -386,9 +443,13 @@ WARRANTY
 
 <div class="header">
 
+
+
 <div class="logo">
 
 <img src="https://cdn.youcan.shop/stores/12ce020b9ba838788fd2288c7997c614/others/Rvi8skKVOssvMahWm1oOQFL8v8rVTq3nIgGjFvgH.png">
+
+
 
 <div>
 
@@ -397,6 +458,8 @@ WARRANTY
 <div class="brand">ELECTRO HAMZA</div>
 
 </div>
+
+
 
 </div>
 
@@ -411,6 +474,8 @@ WARRANTY
 <div>رقم الطلب: <span id="order"></span></div>
 
 </div>
+
+
 
 </div>
 
@@ -427,6 +492,8 @@ WARRANTY
 
 
 <table>
+
+
 
 <tr>
 
@@ -506,6 +573,8 @@ WARRANTY
 
 <div id="qrcode"></div>
 
+<p>Scan WhatsApp Support</p>
+
 </div>
 
 
@@ -518,7 +587,7 @@ Electro Hamza
 
 
 
-<button onclick="window.print()">PDF</button>
+<button onclick="window.print()">Download PDF</button>
 
 
 
@@ -532,31 +601,41 @@ Electro Hamza
 
 <script>
 
-const url=new URLSearchParams(location.search)
+
+
+const url = new URLSearchParams(location.search)
 
 
 
-const name=url.get("name")||"---"
+const name = url.get("name") || "---"
 
-const product=url.get("product")||"---"
+const product = url.get("product") || "---"
 
-const serial=url.get("serial")||"---"
+const serial = url.get("serial") || "---"
 
-const order=url.get("order")||"---"
+const order = url.get("order") || "---"
 
 
 
 function gen(){
 
-let key="EH_"+order
+let key = "EH_"+order
 
-let saved=localStorage.getItem(key)
+
+
+let saved = localStorage.getItem(key)
+
+
 
 if(!saved){
 
-let d=new Date()
+let d = new Date()
 
-saved="EH-"+d.getFullYear().toString().slice(2)+
+
+
+saved = "EH-"+
+
+d.getFullYear().toString().slice(2)+
 
 String(d.getMonth()+1).padStart(2,"0")+
 
@@ -564,9 +643,13 @@ String(d.getDate()).padStart(2,"0")+"-"+
 
 Math.floor(100000+Math.random()*900000)
 
+
+
 localStorage.setItem(key,saved)
 
 }
+
+
 
 return saved
 
@@ -574,37 +657,63 @@ return saved
 
 
 
-document.getElementById("name").textContent=name
+document.getElementById("name").textContent = name
 
-document.getElementById("product").textContent=product
+document.getElementById("product").textContent = product
 
-document.getElementById("serial").textContent=serial
+document.getElementById("serial").textContent = serial
 
-document.getElementById("order").textContent=order
+document.getElementById("order").textContent = order
 
 
 
-document.getElementById("date").textContent=
+document.getElementById("date").textContent =
 
 new Date().toLocaleDateString()
 
 
 
-let num=gen()
+let num = gen()
 
-document.getElementById("num").textContent=num
+
+
+document.getElementById("num").textContent = num
+
+
+
+const whatsappNumber = "212779681264"
+
+
+
+const message =
+
+"السلام عليكم أحتاج مساعدة بخصوص الضمان\n"+
+
+"رقم الضمان: "+num+"\n"+
+
+"رقم الطلب: "+order+"\n"+
+
+"المنتج: "+product
+
+
+
+const whatsappURL =
+
+"https://wa.me/"+whatsappNumber+"?text="+encodeURIComponent(message)
 
 
 
 new QRCode(document.getElementById("qrcode"),{
 
-text:"https://elvystore2.youcan.store/warranty/"+num,
+text: whatsappURL,
 
 width:120,
 
 height:120
 
 })
+
+
 
 </script>
 
